@@ -31,9 +31,7 @@ function App() {
   useEffect(() => {
     const pinData = async () => {
       try {
-        const { data } = await axios.get(
-          "https://travel-log-map-api.herokuapp.com/api/pin"
-        );
+        const { data } = await axios.get("/pin");
 
         setPins(data.data);
       } catch (error) {
