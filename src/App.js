@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Map from "react-map-gl";
-import axios from "axios";
+import Axios from "axios";
 
 import "./index.css";
 
@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const pinData = async () => {
       try {
-        const { data } = await axios.get(
+        const { data } = await Axios.get(
           "https://travel-log-map-api.herokuapp.com/api/pin"
         );
 

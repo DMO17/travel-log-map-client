@@ -1,6 +1,6 @@
 import { AiFillStar } from "react-icons/ai";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import Axios from "axios";
 
 import "./style.css";
 import { useAuth } from "../../context/AppProvider";
@@ -19,7 +19,7 @@ export const LoginForm = ({ setShowLoginForm }) => {
 
   const onSubmit = async (values) => {
     setLoading(true);
-    const { data } = await axios.post(
+    const { data } = await Axios.post(
       "https://travel-log-map-api.herokuapp.com/api/user/login",
       values
     );
