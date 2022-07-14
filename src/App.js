@@ -3,7 +3,6 @@ import Map from "react-map-gl";
 import axios from "axios";
 
 import "./index.css";
-import "mapbox-gl/dist/mapbox-gl.css";
 
 import { PopUpMarker } from "./components/PopUpMarker";
 import { NewPinForm } from "./components/NewPinForm";
