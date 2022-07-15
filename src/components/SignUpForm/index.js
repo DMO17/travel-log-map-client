@@ -1,6 +1,6 @@
 import { AiFillStar } from "react-icons/ai";
 import { useForm } from "react-hook-form";
-import Axios from "axios";
+import axios from "axios";
 
 import "./style.css";
 import { useState } from "react";
@@ -24,7 +24,7 @@ export const SignUpForm = ({ setShowSignupForm }) => {
       });
     } else {
       setLoading(true);
-      const { data } = await Axios.post(
+      const { data } = await axios.post(
         "https://travel-log-map-api.herokuapp.com/api/user/sign-up",
         {
           password,

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Popup } from "react-map-gl";
 import { useForm } from "react-hook-form";
-import Axios from "axios";
+import axios from "axios";
 
 import "./style.css";
 import { useAuth } from "../../context/AppProvider";
@@ -22,7 +22,7 @@ export const NewPinForm = ({ newPlace, setNewPlace, setRefetch }) => {
       long: newPlace?.long,
     };
 
-    const { data: requestData } = await Axios.post(
+    const { data: requestData } = await axios.post(
       "https://travel-log-map-api.herokuapp.com/api/pin",
       newPinData,
       {
