@@ -24,14 +24,11 @@ export const SignUpForm = ({ setShowSignupForm }) => {
       });
     } else {
       setLoading(true);
-      const { data } = await axios.post(
-        "https://travel-log-map-api.herokuapp.com/api/user/sign-up",
-        {
-          password,
-          email,
-          username,
-        }
-      );
+      const { data } = await axios.post("/user/sign-up", {
+        password,
+        email,
+        username,
+      });
 
       if (!data?.success) {
         setSignupError(true);
