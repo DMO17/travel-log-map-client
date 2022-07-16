@@ -13,9 +13,12 @@ export const LoginForm = ({ setShowLoginForm }) => {
     formState: { errors },
   } = useForm();
 
-  const { setIsLoggedIn, setUser } = useAuth();
+  const { setIsLoggedIn, setUser, user } = useAuth();
+
+  console.log(user);
 
   const [loading, setLoading] = useState(false);
+  const [logInError, setLoginError] = useState(false);
 
   const onSubmit = async (values) => {
     setLoading(true);
@@ -23,6 +26,8 @@ export const LoginForm = ({ setShowLoginForm }) => {
       "https://travel-log-map-api.herokuapp.com/api/user/login",
       values
     );
+
+    console.log(data);
 
     if (data.success) {
       localStorage.setItem("token", data.token);
@@ -32,6 +37,9 @@ export const LoginForm = ({ setShowLoginForm }) => {
       setIsLoggedIn(true);
       setLoading(false);
       setShowLoginForm(false);
+    } else {
+      setLoginError(true);
+      setLoading(false);
     }
   };
 
@@ -61,6 +69,9 @@ export const LoginForm = ({ setShowLoginForm }) => {
         <button className="loginBtn" type="submit">
           {!loading ? "Login" : "...Loading"}
         </button>
+        <span className="failure" style={{ fontSize: "15px" }}>
+          {logInError && "Incorrect Login details"}
+        </span>
       </form>
       <span
         style={{ cursor: "pointer" }}
