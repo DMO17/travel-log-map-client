@@ -31,9 +31,9 @@ function App() {
   useEffect(() => {
     const pinData = async () => {
       try {
-        const { data } = await axios.get("/pin", {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        });
+        const { data } = await axios.get(
+          "https://travel-log-map-api.herokuapp.com/api/pin"
+        );
 
         setPins(data.data);
       } catch (error) {

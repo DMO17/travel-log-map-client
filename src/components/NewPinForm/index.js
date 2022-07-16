@@ -22,9 +22,13 @@ export const NewPinForm = ({ newPlace, setNewPlace, setRefetch }) => {
       long: newPlace?.long,
     };
 
-    const { data: requestData } = await axios.post("/pin", newPinData, {
-      headers: { authorization: `Bearer ${accessToken}` },
-    });
+    const { data: requestData } = await axios.post(
+      "https://travel-log-map-api.herokuapp.com/api/pin",
+      newPinData,
+      {
+        headers: { authorization: `Bearer ${accessToken}` },
+      }
+    );
     setNewPlace(null);
 
     requestData.success && setRefetch((prevState) => !prevState);
