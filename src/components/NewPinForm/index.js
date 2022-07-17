@@ -20,6 +20,7 @@ export const NewPinForm = ({ newPlace, setNewPlace, setRefetch }) => {
       ...data,
       lat: newPlace?.lat,
       long: newPlace?.long,
+      user: user.username,
     };
 
     const { data: requestData } = await axios.post(

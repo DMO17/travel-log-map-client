@@ -13,9 +13,7 @@ export const LoginForm = ({ setShowLoginForm }) => {
     formState: { errors },
   } = useForm();
 
-  const { setIsLoggedIn, setUser, user } = useAuth();
-
-  console.log(user);
+  const { setIsLoggedIn, setUser } = useAuth();
 
   const [loading, setLoading] = useState(false);
   const [logInError, setLoginError] = useState(false);
@@ -23,11 +21,9 @@ export const LoginForm = ({ setShowLoginForm }) => {
   const onSubmit = async (values) => {
     setLoading(true);
     const { data } = await axios.post(
-      "https://travel-log-map-api.herokuapp.com/api/user/login",
+      "https://travel-log-map-api.herokuapp.com/api/user/log-in",
       values
     );
-
-    console.log(data);
 
     if (data.success) {
       localStorage.setItem("token", data.token);
